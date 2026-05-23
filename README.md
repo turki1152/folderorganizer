@@ -30,8 +30,8 @@ Images, Videos, Audio, Documents, Spreadsheets, Presentations, Archives, Code, I
 Clone the repo:
 
 ```bash
-git clone https://github.com/turki1152/folderorganizer-.git
-cd folderorganizer-
+git clone https://github.com/turki1152/folderorganizer.git
+cd folderorganizer
 ```
 
 Install GUI dependency:
