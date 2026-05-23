@@ -1,1 +1,1 @@
-# folderorganizer uses only the Python standard library.
+customtkinter>=5.2.0

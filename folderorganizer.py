@@ -159,23 +159,34 @@ def build_plan(root, mode, recursive):
     return plan
 
 
+def format_plan_preview(plan, root, max_lines=30):
+    lines = []
+    for source, destination in plan[:max_lines]:
+        lines.append(f"{source.relative_to(root)} -> {destination.relative_to(root)}")
+    return lines, len(plan) > max_lines
+
+
 def print_plan(plan, root):
     if not plan:
         print("\nNothing to organize.")
         return
 
     print(f"\nPreview: {len(plan)} file(s) will move\n")
-    for source, destination in plan[:30]:
-        print(f"{source.relative_to(root)} -> {destination.relative_to(root)}")
+    lines, truncated = format_plan_preview(plan, root, max_lines=30)
+    for line in lines:
+        print(line)
 
-    if len(plan) > 30:
+    if truncated:
         print(f"... and {len(plan) - 30} more")
 
 
-def apply_plan(plan):
-    for source, destination in plan:
+def apply_plan(plan, on_progress=None):
+    total = len(plan)
+    for index, (source, destination) in enumerate(plan, start=1):
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.move(str(source), str(destination))
+        if on_progress is not None:
+            on_progress(index, total)
 
 
 def main():
