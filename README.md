@@ -1,6 +1,6 @@
 # Folder Organizer
 
-A small Python tool that sorts messy folders into clean structure  by **file type** (Images, Documents, Videos, etc.) or by **modified date** (Year-Month folders).
+A small Python tool that sorts messy folders into clean structure by **file type** (Images, Documents, Videos, etc.) or by **modified date** (Year-Month folders).
 
 Use the **desktop app** for a colorful, easy UI, or the **terminal** if you prefer the command line. Every run shows a **preview first**; nothing moves until you confirm.
 
